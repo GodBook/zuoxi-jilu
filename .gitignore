@@ -1,0 +1,8 @@
+node_modules/
+out/
+release/
+coverage/
+*.tsbuildinfo
+测试数据/
+截图/
+

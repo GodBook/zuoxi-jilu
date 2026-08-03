@@ -1,0 +1,73 @@
+{
+  "name": "zuoxi-jilu",
+  "version": "1.0.0",
+  "description": "离线的睡眠与饮食作息记录软件",
+  "main": "out/main/index.js",
+  "author": "作息记录",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "typecheck": "tsc -p tsconfig.node.json --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "dist": "npm run test && npm run typecheck && npm run build && electron-builder --win nsis portable"
+  },
+  "dependencies": {
+    "lucide-react": "1.28.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "recharts": "3.10.1",
+    "sql.js": "1.14.1"
+  },
+  "devDependencies": {
+    "@types/node": "26.1.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@types/sql.js": "1.4.9",
+    "@vitejs/plugin-react": "5.1.4",
+    "electron": "43.2.0",
+    "electron-builder": "26.15.3",
+    "electron-vite": "5.0.0",
+    "typescript": "7.0.2",
+    "vite": "7.3.6",
+    "vitest": "4.1.10"
+  },
+  "build": {
+    "appId": "cn.zuoxijilu.desktop",
+    "productName": "作息记录",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "electronDist": "node_modules/electron/dist",
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "node_modules/sql.js/dist/sql-wasm.wasm",
+        "to": "sql-wasm.wasm"
+      }
+    ],
+    "win": {
+      "target": ["nsis", "portable"],
+      "icon": "build/图标.ico",
+      "artifactName": "作息记录-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "artifactName": "作息记录-安装版-${version}.${ext}",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false,
+      "shortcutName": "作息记录"
+    },
+    "portable": {
+      "artifactName": "作息记录-便携版-${version}.${ext}"
+    }
+  }
+}
