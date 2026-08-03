@@ -10,18 +10,18 @@
 
 Windows 10/11 x64 用户可前往 [v1.0.0 发布页](https://github.com/GodBook/zuoxi-jilu/releases/tag/v1.0.0) 下载：
 
-| 文件 | 适合场景 | 数据位置 |
+| 下载 | 适合场景 | 数据位置 |
 | --- | --- | --- |
-| `作息记录-安装版-1.0.0.exe` | 日常使用，可选择安装目录并创建快捷方式 | `%APPDATA%\作息记录` |
-| `作息记录-便携版-1.0.0.exe` | 放在 U 盘或任意文件夹中免安装运行 | EXE 同目录下的 `data` 文件夹 |
+| [安装版 `zuoxi-jilu-setup-1.0.0.exe`](https://github.com/GodBook/zuoxi-jilu/releases/download/v1.0.0/zuoxi-jilu-setup-1.0.0.exe) | 日常使用，可选择安装目录并创建快捷方式 | `%APPDATA%\作息记录` |
+| [便携版 `zuoxi-jilu-portable-1.0.0.exe`](https://github.com/GodBook/zuoxi-jilu/releases/download/v1.0.0/zuoxi-jilu-portable-1.0.0.exe) | 放在 U 盘或任意文件夹中免安装运行 | EXE 同目录下的 `data` 文件夹 |
 
 两个版本默认使用各自的数据目录。要在它们之间迁移记录，请在「设置与备份」中导出完整备份，再在另一个版本中恢复。
 
-首版没有购买代码签名证书，Windows SmartScreen 可能显示「未知发布者」。下载后可用 PowerShell 核对文件：
+GitHub 会过滤 Release 资产文件名中的中文，因此下载文件使用上表中的英文名称；程序名称和本地构建产物仍为「作息记录」。首版没有购买代码签名证书，Windows SmartScreen 可能显示「未知发布者」。下载后可用 PowerShell 核对文件：
 
 ```powershell
-Get-FileHash -Algorithm SHA256 '.\作息记录-安装版-1.0.0.exe'
-Get-FileHash -Algorithm SHA256 '.\作息记录-便携版-1.0.0.exe'
+Get-FileHash -Algorithm SHA256 '.\zuoxi-jilu-setup-1.0.0.exe'
+Get-FileHash -Algorithm SHA256 '.\zuoxi-jilu-portable-1.0.0.exe'
 ```
 
 | 文件 | SHA-256 |
